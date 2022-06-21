@@ -17,7 +17,7 @@ return new class extends Migration
             $table
             ->foreignId('picture_id')->constrained()->onDelete('cascade');
             $table
-            ->foreignId('category_id')->constrained()->onDelete('cascade');
+            ->foreignId('category_id')->constrained();
         });
     }
 
@@ -29,8 +29,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('picture_id');
-            $table->dropForeign('category_id');
+            $table->dropForeign(['picture_id']);
+            $table->dropForeign(['category_id']);
             $table->dropColumn('picture_id');
             $table->dropColumn('category_id');
         });
