@@ -23,11 +23,11 @@ class ProductSeeder extends Seeder
         
         
         $nbMaxSize = count(Size::all());
-        $ids = range(1 , $nbMaxSize);
+        $ids = range(1 , $nbMaxSize); //faire un tableau 
 
         Product::factory(80)->create()->each(function ($product) use ($ids,$nbMaxSize) {
             shuffle($ids);
-            $product->sizes()->attach(array_slice($ids, 1, $nbMaxSize));
+            $product->sizes()->attach(array_slice($ids, 1, rand(1,$nbMaxSize)));
 
             $folder = $product->category_id == 1 ? 'hommes' : 'femmes';
             $pathFolder = '/images/' . $folder;
