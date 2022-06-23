@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('price');
             $table->enum('visible', ["Non publié","Publié"]);
             $table->enum('state', ["Standard", "En solde"]);
-            $table->string('reference');
+            $table->string('reference',16);
             $table->timestamps();
         });
     }
