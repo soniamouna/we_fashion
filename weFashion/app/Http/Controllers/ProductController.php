@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $products = Product::All();
+        $pictures = Picture::All();
+        return view('welcome', ['products' => $products,'pictures'=>$pictures]);
     }
 
     /**
