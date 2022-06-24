@@ -46,9 +46,15 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product=Product::findOrFail($id);
+        $pictures = Picture::all();
+        $picture = $pictures[$id==0 ? $id : $id-1];
+        return view('productDetails',[
+            'product'=> $product,
+            'picture'=> $picture
+        ]);
     }
 
     /**

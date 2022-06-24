@@ -20,6 +20,8 @@ Route::get('/', function () {
 });  
 
 Route::get('/', [ProductController::class,'index'])->name('welcome');
+Route::get('/produit/{id}', [ProductController::class,'show'])->name('productDetails');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
