@@ -24,4 +24,9 @@ class Product extends Model
         return $this->belongsToMany(Size::class);
     }
 
+    public static function getAll()
+    {
+        $products = Product::all();
+        return $products;
+    }
 }

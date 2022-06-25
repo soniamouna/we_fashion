@@ -9,41 +9,46 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function productAll()
-    {   $products = Product::all();
-        $pictures = Picture::all();
-        return view('welcome', ['products' => $products,'pictures'=>$pictures]);
-    }
-
-    public function productId($id)
+    public function index()
     {
-        $product=Product::findOrFail($id);
-        $pictures = Picture::all();
-        $picture = $pictures[$id==0 ? $id : $id-1];
-        return view('productDetails',[
-            'product'=> $product,
-            'picture'=> $picture
-        ]);
+        $products = Product::getAll();
+        return view('front.index', ['products' => $products]);
     }
+    // public function productAll()
+    // {   $products = Product::all();
+    //     $pictures = Picture::all();
+    //     return view('welcome', ['products' => $products,'pictures'=>$pictures]);
+    // }
 
-    public function productFilter($filter){
-        $pictures = Picture::all(); 
-        $genders = Category::all();
+    // public function productId($id)
+    // {
+    //     $product=Product::findOrFail($id);
+    //     $pictures = Picture::all();
+    //     $picture = $pictures[$id==0 ? $id : $id-1];
+    //     return view('productDetails',[
+    //         'product'=> $product,
+    //         'picture'=> $picture
+    //     ]);
+    // }
 
-        if($filter == "homme"){
-            $product= Product::where('category_id', $genders[0]->id)->get();
-        }else if ($filter == "femme"){
-            $product= Product::where('category_id', $genders[1]->id)->get();
-        }else if($filter == "solde"){
-            $product= Product::where('state', "En solde")->get();
-        }else{
-            abort(404);
-        }
+    // public function productFilter($filter){
+    //     $pictures = Picture::all(); 
+    //     $genders = Category::all();
 
-        return view('welcome', [
-                    'product' => $product,
-                    'picture' => $pictures
-                ]);
+    //     if($filter == "homme"){
+    //         $product= Product::where('category_id', $genders[0]->id)->get();
+    //     }else if ($filter == "femme"){
+    //         $product= Product::where('category_id', $genders[1]->id)->get();
+    //     }else if($filter == "solde"){
+    //         $product= Product::where('state', "En solde")->get();
+    //     }else{
+    //         abort(404);
+    //     }
+
+    //     return view('welcome', [
+    //                 'product' => $product,
+    //                 'picture' => $pictures
+    //             ]);
         
         // $gender = $genders->where('name', $filter)->value('id');
         
@@ -62,6 +67,5 @@ class ClientController extends Controller
         // } else{
         //     abort(404);
         // }
-    }
-
+    // }
 }

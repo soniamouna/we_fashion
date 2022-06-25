@@ -13,11 +13,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {   $products = Product::All();
-        $pictures = Picture::All();
-        return view('welcome', ['products' => $products,'pictures'=>$pictures]);
-    }
+    // public function index()
+    // {   $products = Product::All();
+    //     $pictures = Picture::All();
+    //     return view('welcome', ['products' => $products,'pictures'=>$pictures]);
+    // }
 
     /**
      * Show the form for creating a new resource.
