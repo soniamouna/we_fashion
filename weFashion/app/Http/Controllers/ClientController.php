@@ -37,7 +37,7 @@ class ClientController extends Controller
     {   
         $products = Product::getByCategory($id);
         $category = Category::getById($id);
-        $categories = Category::getAll();
+       
         return view('front.category', [
             'products' => $products,
             'category' => $category,
