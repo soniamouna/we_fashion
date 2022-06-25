@@ -29,7 +29,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/', 'index')->name('product.list');
     Route::get('/produit/{id}', 'getByIdProduct')->name('product.show')->where(['id'=>'[0-9]+']);
     Route::get('/produits/categorie/{id}', 'getByCategoryId')->name('product.category')->where(['id'=>'[0-9]+']);
-    // Route::get('/produits/soldes', 'getByState')->name('product.state');
+    Route::get('/produits/soldes', 'getByStateProduct')->name('product.state');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

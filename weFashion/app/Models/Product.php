@@ -45,4 +45,10 @@ class Product extends Model
 
         return $products;
     }
+
+    public static function getByState()
+    {
+        $products = Product::where('state', 'En solde')->get();
+        return $products;
+    }
 }

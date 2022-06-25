@@ -43,6 +43,18 @@ class ClientController extends Controller
             'category' => $category,
         ]);
     }
+
+    public function getByStateProduct()
+    {
+        $products = Product::getByState();
+
+        return view(
+            'front.state', 
+            [
+                'products' => $products,
+            ]
+        );
+    }
     // public function productAll()
     // {   $products = Product::all();
     //     $pictures = Picture::all();
