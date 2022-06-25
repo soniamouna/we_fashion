@@ -14,6 +14,17 @@ class ClientController extends Controller
         $products = Product::getAll();
         return view('front.index', ['products' => $products]);
     }
+
+    public function getByIdProduct(int $id)
+    {
+        
+        $product = Product::getByID($id);
+        
+        return view(
+            'front.productDetails', 
+            ['product' => $product]
+        );
+    }
     // public function productAll()
     // {   $products = Product::all();
     //     $pictures = Picture::all();

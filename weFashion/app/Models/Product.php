@@ -29,4 +29,13 @@ class Product extends Model
         $products = Product::all();
         return $products;
     }
+
+    
+    public static function getById($id)
+    {
+
+        $product = Product::find($id);
+
+        return $product;
+    }
 }

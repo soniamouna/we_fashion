@@ -27,7 +27,7 @@ Auth::routes();
 
 Route::controller(ClientController::class)->group(function(){
     Route::get('/', 'index')->name('product.list');
-    // Route::get('/produit/{id}', 'getByIdProduct')->name('product.show')->where(['id'=>'[0-9]+']);
+    Route::get('/produit/{id}', 'getByIdProduct')->name('product.show')->where(['id'=>'[0-9]+']);
     // Route::get('/produits/categorie/{id}', 'getByCategory')->name('product.category')->where(['id'=>'[0-9]+']);
     // Route::get('/produits/soldes', 'getByState')->name('product.state');
 });
