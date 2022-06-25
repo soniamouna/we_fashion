@@ -9,12 +9,31 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">SOLDE</a>
               </li>
-          <li class="nav-item">
+              
+             
+             
+              @foreach($categories as $categorie)
+                  <li class="nav-item">
+                      <a class="nav-link text-uppercase" href="{{url('produits/categorie', $categorie->id)}}">{{$categorie->name}}</a>
+                  </li>
+              @endforeach
+                
+           
+            {{-- @if (isset($categories))
+              @forelse ($categories as $id =>$name)
+                <li class="nav-item">
+                  <a class="nav-link text-uppercase" href="{{url('produits/categorie', $id)}}">{{$name}}</a>
+                </li>
+                @empty
+                <li>Aucun produits pour l'instant ...</li>
+            @endforelse
+            @endif --}}
+          {{-- <li class="nav-item">
             <a class="nav-link" href="#">HOMME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">FEMME</a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>

@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        view()->composer('partials.clientMenu', function($view){
+            $categories = Category::getAll();
+            $view->with('categories', $categories);
+        });
+    }
     public function index()
     {
         $products = Product::getAll();
@@ -24,6 +31,17 @@ class ClientController extends Controller
             'front.productDetails', 
             ['product' => $product]
         );
+    }
+
+    public function getByCategoryId(int $id)
+    {   
+        $products = Product::getByCategory($id);
+        $category = Category::getById($id);
+        $categories = Category::getAll();
+        return view('front.category', [
+            'products' => $products,
+            'category' => $category,
+        ]);
     }
     // public function productAll()
     // {   $products = Product::all();
