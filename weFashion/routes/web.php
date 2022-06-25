@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });  
 
-Route::get('/', [ProductController::class,'index'])->name('welcome');
-Route::get('/produit/{id}', [ProductController::class,'show'])->name('productDetails');
+Route::get('/', [ClientController::class,'productAll'])->name('welcome');
+Route::get('/produit/{id}', [ClientController::class,'productId'])->name('productDetails');
 
 Auth::routes();
 
