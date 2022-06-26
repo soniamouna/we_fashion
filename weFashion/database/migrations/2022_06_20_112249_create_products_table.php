@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
+            $table->string('name', 100);
+            $table->text('description')->nullable();
             $table->float('price');
             $table->enum('visible', ["Non publié","Publié"]);
             $table->enum('state', ["Standard", "En solde"]);

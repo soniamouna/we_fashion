@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    private $paginate = 6;
     public function __construct()
     {
         view()->composer('partials.clientMenu', function($view){
@@ -32,7 +31,7 @@ class ClientController extends Controller
     public function getByIdProduct(int $id)
     {
         
-        $product = Product::getByID($id);
+        $product = Product::getById($id);
         
         return view(
             'front.productDetails', 

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            UserSeeder::class,
 			CategorySeeder::class, // Création des Category
 			SizeSeeder::class, // Création des Size
             ProductSeeder::class, // Création des Product

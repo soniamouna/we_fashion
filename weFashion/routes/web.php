@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -32,4 +34,12 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('/produits/soldes', 'getByStateProduct')->name('product.state');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('admin',[LoginController::class, 'showLoginForm'])->name('admin');
+Route::resource('categories', CategoryController::class);
+Route::resource('produits', ProductController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\ProductController::class, 'index'])->name('home');
+
