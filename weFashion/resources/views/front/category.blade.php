@@ -7,5 +7,7 @@
     @include('components.count', ['count' => $count])
 
     @include('components.products', ['products' => $products])
+    @include('components.pagination', ['products' => $products])
+
 </div>
 @endsection
