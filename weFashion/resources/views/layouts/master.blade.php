@@ -10,16 +10,16 @@
     <title>WE FASHION | Liste de produits</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid m-auto">
         <div class="col-lg-12">
             @include('partials.clientMenu')
         </div>
-        <div class="row py-5">
+        <div class="container  py-5">
             <div class="col-lg-12">
                 @yield('content')
             </div>
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12 text-center">
             @include('partials.footer')
         </div>
     </div>
