@@ -15,8 +15,8 @@
     </div>
     <div  class="col-lg-4">
         <h1>Réseaux sociaux</h1>
-        <li><a href="#">facebook</a></li>
-        <li><a href="#">instagram</a></li>
+        <li><a href="#"><i class="fa-brands fa-facebook-square"></i></a></li>
+        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
         <li><a href="#">inscrivez vous à la newsletter</a></li>
     </div>
 </footer>

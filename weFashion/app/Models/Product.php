@@ -26,14 +26,15 @@ class Product extends Model
 
     public static function getAll()
     {
-        $products = Product::all();
+        $productsVisible = Product::getByVisibility();
+        $products = $productsVisible->all();
         return $products;
     }
 
     
     public static function getById($id)
     {
-
+        
         $product = Product::find($id);
 
         return $product;
@@ -41,14 +42,23 @@ class Product extends Model
 
     public static function getByCategory($id)
     {
-        $products = Product::where('category_id', $id)->get();
+        $productsVisible = Product::getByVisibility();
+        $products = $productsVisible->where('category_id', $id);
 
         return $products;
     }
 
     public static function getByState()
-    {
-        $products = Product::where('state', 'En solde')->get();
+    {   $productsVisible = Product::getByVisibility();
+        $products = $productsVisible->where('state', 'En solde');
         return $products;
     }
+
+    public static function getByVisibility()
+    {
+        $products = Product::orderBy('created_at', 'desc')->where('visible', 'Publié');
+        return $products;
+    }
+   
+
 }

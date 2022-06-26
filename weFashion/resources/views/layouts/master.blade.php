@@ -23,5 +23,7 @@
             @include('partials.footer')
         </div>
     </div>
+
+    <script src="https://kit.fontawesome.com/d09560a292.js" crossorigin="anonymous"></script>
 </body>
 </html>
